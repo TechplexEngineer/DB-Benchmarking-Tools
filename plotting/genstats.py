@@ -10,6 +10,8 @@ import matplotlib.dates as md
 import numpy as np
 from datetime import datetime, timedelta
 
+# This function expects the data in [filename] to be tab separated.
+# Col1 is the unix timestamp and col2 is the database transactions per second
 def genstats(filename, start, end, plot=False, print_dates=False):
 	
 	data =  np.loadtxt(filename, delimiter='\t')
