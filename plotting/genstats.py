@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 
+###
+# Code to calculate statictics from dump file
+# B.Bourque 7/8/2015
+###
 
 import matplotlib.pyplot as plt
 import matplotlib.dates as md
 import numpy as np
 from datetime import datetime, timedelta
-# import time
-# from dateutil import tz
 
 def genstats(filename, start, end, plot=False, print_dates=False):
 	
