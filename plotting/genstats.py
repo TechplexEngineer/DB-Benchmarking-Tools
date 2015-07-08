@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 
 # This function expects the data in [filename] to be tab separated.
 # Col1 is the unix timestamp and col2 is the database transactions per second
-def genstats(filename, start, end, plot=False, print_dates=False, human_readable=True):
+def genstats(filename, start=0, end=-1,numpts=-1, plot=False, print_dates=False, human_readable=True):
 	
 	data =  np.loadtxt(filename, delimiter='\t')
 
@@ -30,6 +30,9 @@ def genstats(filename, start, end, plot=False, print_dates=False, human_readable
 	# If start is negative, then its 0
 	if start < 0:
 		start = 0
+
+	if numpts != -1:
+		end = start+numpts
 
 	if human_readable:
 		print "start\t\t:", start
@@ -67,4 +70,4 @@ if __name__ == "__main__":
 
 	genstats("testdata.txt", 0, -1, plot=True, print_dates=False, human_readable=True)
 
-	genstats("testdata.txt", 0, -1, plot=False, print_dates=True, human_readable=True)
+	genstats("testdata.txt", 0, -1, plot=False, print_dates=True, human_readable=False)
